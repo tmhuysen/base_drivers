@@ -11,9 +11,11 @@ basis_set = sys.argv[3]
 file_name = sys.argv[4]
 
 
+
 x = 0
 if len(sys.argv) > 5:
     x = sys.argv[5]
+
 
 file = open(file_name, "r")
 data = file.read()
@@ -55,21 +57,8 @@ def array_to_csl(array):
     return s[:-1]
 
 data_sets = newlined_tabbed_data_string_to_dataset(data, float)
-fit = interp1d(data_sets[2], data_sets[1])
 
-start_pop = data_sets[2][0]
-end_pop = data_sets[2][-1]
-
-
-n_ofinputs = int((start_pop-end_pop)/interval)
-cargs = np.arange(start_pop, end_pop, interval)
-interpolated_input = fit(cargs)
-interpolated_input = np.append(interpolated_input, data_sets[1][-1])
-
-print(interpolated_input)
-print(x)
-
-cargsstr = array_to_csl(interpolated_input)
+cargsstr = array_to_csl(data_sets[1])
 pathx = os.environ['PEXE1']
 pathy = "dense_constrained_N_O"
 print(pathx)
