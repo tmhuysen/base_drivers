@@ -2,14 +2,11 @@
 import os
 import subprocess
 import sys
-import numpy as np
-from scipy.interpolate import interp1d
 
 distance = sys.argv[1]
-interval = float(sys.argv[2])
-basis_set = sys.argv[3]
-file_name = sys.argv[4]
-out_name = sys.argv[5]
+basis_set = sys.argv[2]
+file_name = sys.argv[3]
+out_name = sys.argv[4]
 
 
 
